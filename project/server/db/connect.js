@@ -1,11 +1,10 @@
-const mongoose = require("mongoose");
+const mysql = require("mysql");
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.ATLAS_URI);
-  } catch (err) {
-    console.log(err);
-  }
-};
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "1234",
+  database: "project_manager",
+});
 
-module.exports = connectDB;
+module.exports = connection;

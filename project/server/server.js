@@ -1,12 +1,8 @@
-require("dotenv").config();
 const bodyParser = require("body-parser");
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
-const connectDB = require("./db/connect.js");
-
-connectDB();
+const connection = require("./db/connect.js");
 
 const port = process.env.PORT || 3000;
 
@@ -17,11 +13,7 @@ app.use(bodyParser.json());
 
 app.use("/list", require("./routes/list"));
 
-mongoose.connection.once("open", () => {
-  console.log("Connected to MongoDB");
-  app.listen(port, () => console.log(`Server running on port ${port}`));
-});
-// dsadsa
-mongoose.connection.on("error", (err) => {
-  console.log(err);
+connection.connect(function (err) {
+  if (err) console.log(err);
+  console.log("Connected!");
 });
