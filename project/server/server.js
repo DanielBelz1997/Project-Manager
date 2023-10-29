@@ -1,3 +1,4 @@
+require("dotenv").config();
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
@@ -8,12 +9,20 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(require("./routes/list.js"));
 app.use(bodyParser.json());
 
-app.use("/list", require("./routes/list"));
+app.use("/api", require("./api.js"));
 
-connection.connect(function (err) {
-  if (err) console.log(err);
-  console.log("Connected!");
-});
+const startServer = () => {
+  connection.connect(function (err) {
+    if (err) console.log(err);
+    console.log(`running on port: ${port}`);
+    console.log(`Connected to DataBase: ${process.env.DB}`);
+  });
+};
+
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = { app, startServer };

@@ -1,42 +1,59 @@
-const express = require("express");
 const list = require("../modules/list");
-const ObjectId = require("mongoose").Types.ObjectId;
+const connection = require("../db/connect.js");
 
-const getList = async function (req, res) {
+async function getUsers(req, res) {
   try {
-    const notes = await list.find().lean();
+    connection.connect();
 
-    if (!list?.length) {
-      return res.status(400).json({ message: "No notes found" });
-    }
+    const query = `select * from users`;
 
-    res.json(notes);
+    connection.query(query, (error, results) => {
+      if (error) {
+        console.log(error);
+        return res.status(400).json({ message: error });
+      }
+
+      console.log(results);
+      return res.status(200).json({ message: "got them!", results: results });
+    });
   } catch (e) {
     console.log(e);
-    return res.status(400).json({ message: e });
+    return res.status(500).json({ message: e });
   }
-};
+}
 
-const postList = async function (req, res) {
+async function loginUser(req, res) {
+  const query = `
+  SELECT username, password FROM users
+  WHERE username = ? AND password = ?
+  `;
+
   try {
-    const { name, email, comment } = req.body;
+    const { username, password } = req.body;
+    console.log(username);
 
-    if (!name || !email || !comment) {
-      return res.status(400).json({ message: "All fields are required" });
+    if (!username || !password) {
+      return res.status(402).json({ message: "All fields are required" });
     }
 
-    const newPost = { name: name, email: email, comment: comment };
+    connection.query(query, [username, password], (error, results) => {
+      if (error) {
+        console.log(error);
+        return res.status(400).json({ message: error });
+      } else if (!results) {
+        console.log(error);
+        return res.status(401).json({ message: "המשתמש אינו רשום במערכת" });
+      }
+    });
 
-    const user = await list.create(newPost);
-
-    res.json(newPost);
+    return res.status(200).json({ message: "user was logged successfully!" });
   } catch (e) {
     console.log(e);
-    return res.status(400).json({ message: e });
+    return res.status(500).json({ message: e });
   }
-};
+}
 
 module.exports = {
-  getList,
-  postList,
+  getUsers,
+  loginUser,
 };

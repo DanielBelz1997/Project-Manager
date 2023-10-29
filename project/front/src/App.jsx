@@ -1,11 +1,10 @@
-import FormComponent from "../public/form";
+import Login from "../public/login";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <p className="parag">welcome to my Forum!</p>
-      <FormComponent />
+      <Login />
     </>
   );
 }
