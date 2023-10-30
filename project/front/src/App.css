@@ -1,10 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.imageLogin {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  margin-left: 50px;
+}
+
+.image {
+  max-width: 100%;
+}
+
 .mainContainer {
+  max-width: 50%;
+  flex: 1;
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin-right: 40px;
+  margin-right: 80px;
 }
 
 .mainContainer {
@@ -18,6 +37,53 @@
   font-weight: bolder;
   align-items: center;
   justify-content: center;
+}
+
+.resultContainer,
+.historyItem {
+  flex-direction: row;
+  display: flex;
+  width: 350px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyContainer {
+  flex-direction: column;
+  display: flex;
+  height: 200px;
+  align-items: center;
+  flex-grow: 5;
+  justify-content: flex-start;
+}
+
+.bottonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.inputContainer > .errorLabel {
+  color: red;
+  font-size: 12px;
+}
+
+.inputBox {
+  height: 50px;
+  width: 350px;
+  font-size: large;
+  border-radius: 8px;
+  border: 1px, solid, gray;
+  padding-left: 8px;
 }
 
 .resultContainer,
