@@ -7,8 +7,8 @@ body {
   background-color: hsl(0, 0%, 100%);
   background: linear-gradient(
     to right,
-    rgba(249, 106, 193, 0.6),
-    rgba(64, 218, 254, 0.6)
+    rgb(56, 56, 56),
+    rgb(35, 35, 35)
   ); /* Define your gradient colors */
   -webkit-background-clip: text; /* For WebKit browsers (e.g., Chrome, Safari) */
   background-clip: text;
@@ -37,11 +37,20 @@ code {
 
 input[type="button"] {
   border: none;
-  background: cornflowerblue;
-  color: white;
-  padding: 8px 20px;
+  background: #333333;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
   margin: 5px;
   font-size: 18px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.25s;
+}
+
+input[type="button"]:hover {
+  background: rgb(72, 72, 72);
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  padding-left: 20px;
+  padding-right: 20px;
 }
