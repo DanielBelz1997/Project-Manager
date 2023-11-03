@@ -1,0 +1,69 @@
+{
+  "workbench.colorTheme": "Monokai", // Change the color theme to Monokai or your preferred theme
+
+  "workbench.colorCustomizations": {
+    // Tab colors
+    "tab.activeBackground": "#0074D9", // Active tab background color
+    "tab.inactiveBackground": "#004E98", // Inactive tab background color
+
+    // Activity bar
+    "activityBar.background": "#0074D9", // Background color of the activity bar
+
+    // Editor group header
+    "editorGroupHeader.tabsBackground": "#0074D9", // Background color of the editor group header
+    "editorGroup.border": "#0074D9", // Border color of editor groups
+
+    // Status bar
+    "statusBar.background": "#0074D9", // Background color of the status bar
+    "statusBar.foreground": "#FFFFFF", // Text color of the status bar
+    "statusBar.noFolderBackground": "#004E98", // Background color of the status bar when no folder is open
+
+    // Side bar
+    "sideBar.background": "#001F3F", // Background color of the side bar
+    "sideBarSectionHeader.background": "#0074D9", // Background color of section headers in the side bar
+
+    // Custom cursor
+    "editorCursor.foreground": "#0074D9", // Change the cursor color
+
+    // Line numbers and gutter
+    "editorLineNumber.foreground": "#0074D9", // Line number color
+    "editorGutter.background": "#004E98", // Gutter background color
+
+    // Comments
+    "comments.foreground": "#0074D9", // Comment text color
+
+    // Strings
+    "strings.foreground": "#0074D9", // String text color
+
+    // Numbers
+    "numbers.foreground": "#0074D9" // Number text color
+  },
+
+  // Custom font settings
+  "editor.fontFamily": "Menlo, 'Courier New', monospace",
+  "editor.fontSize": 14,
+
+  // Line height
+  "editor.lineHeight": 24,
+
+  // Custom cursor settings
+  "editor.cursorBlinking": "phase",
+  "editor.cursorStyle": "line",
+
+  // Custom tab settings
+  "workbench.iconTheme": "material-icon-theme", // Change the icon theme
+
+  // Custom settings for an extension (e.g., indent-rainbow)
+  "indentRainbow.colors": ["#0074D9", "#004E98", "#001F3F"],
+
+  // Custom CSS (if you want to use your CSS file)
+  "vscode_custom_css.imports": ["file:///path/to/custom-styles.css"],
+
+  // Custom keybindings
+  "keybindings.json": [
+    {
+      "key": "ctrl+s",
+      "command": "workbench.action.files.save"
+    }
+  ]
+}
