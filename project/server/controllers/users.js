@@ -12,6 +12,7 @@ async function loginUser(req, res) {
   SELECT username, password FROM users
   WHERE username = ? AND password = ?
   `;
+  console.log("dsadas");
 
   try {
     const { username, password } = req.body;
@@ -63,4 +64,4 @@ async function verify(req, res) {
   }
 }
 
-module.exports = { getHomePage, loginUser };
+module.exports = { getHomePage, loginUser, verify };

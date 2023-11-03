@@ -1,6 +1,6 @@
 import { useState } from "react";
 import image from "./5087579.png";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -8,13 +8,13 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [error, setError] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  // const [submittedData, setSubmittedData] = useState(null);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onBottonClick = () => {
     setUsernameError("");
@@ -35,19 +35,34 @@ const Login = () => {
       return;
     }
 
-    // checkAccountExists(accountExists => {
-    //   if ()
-    // })
+    handleLogin();
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch(`"http://localhost:3000/api/users/auth"`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.status === 200) {
+        navigate("/main");
+      } else {
+        setError("Login failed. Please check your credentials.");
+      }
+    } catch (error) {
+      setError("An error occurred while logging in.");
+    }
   };
 
   return (
     <>
-      {/* <img src={image} alt="Chat" /> */}
       <div className="container">
         <div className="imageLogin">
-          {/* <div className="image"> */}
           <img src={image} alt="Chat" />
-          {/* </div> */}
         </div>
         <div className={"mainContainer"}>
           <div className={"titleContainer"}>
@@ -88,6 +103,7 @@ const Login = () => {
               onClick={onBottonClick}
               value={"Login"}
             />
+            <label className="errorLabel">{error}</label>
           </div>
         </div>
       </div>

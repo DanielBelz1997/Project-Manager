@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/api", require("./api.js"));
+app.use(`/api`, require(`./api.js`));
 
 const startServer = () => {
   connection.connect(function (err) {
