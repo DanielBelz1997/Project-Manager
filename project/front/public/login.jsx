@@ -54,7 +54,6 @@ const Login = () => {
         setError("Login failed. Please check your credentials.");
       }
     } catch (error) {
-      console.log("sonthis");
       setError("An error occurred while logging in.");
     }
   };
