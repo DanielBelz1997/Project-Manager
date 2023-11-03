@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const app = express();
 const cors = require("cors");
 const connection = require("./db/connect.js");
+const logger = require("./modules/logger.js");
 
 const port = process.env.PORT || 3000;
 
@@ -19,8 +20,8 @@ app.use(`/api`, require(`./api.js`));
 const startServer = () => {
   connection.connect(function (err) {
     if (err) console.log(err);
-    console.log(`running on port: ${port}`);
-    console.log(`Connected to DataBase: ${process.env.DB}`);
+    logger.info(`running on port: ${port}`);
+    logger.info(`Connected to DataBase: ${process.env.DB}`);
   });
 };
 

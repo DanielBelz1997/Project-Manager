@@ -40,7 +40,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`"http://localhost:3000/api/users/auth"`, {
+      const response = await fetch(`http://localhost:3000/api/users/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,10 +50,11 @@ const Login = () => {
 
       if (response.status === 200) {
         navigate("/main");
-      } else {
+      } else if (response.status === 500) {
         setError("Login failed. Please check your credentials.");
       }
     } catch (error) {
+      console.log("sonthis");
       setError("An error occurred while logging in.");
     }
   };
