@@ -1,6 +1,7 @@
 import { useState } from "react";
 import image from "./5087579.png";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,6 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [error, setError] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -49,17 +49,32 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        navigate("/main");
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ username, token: response.token })
+        );
+        navigate("/");
       } else if (response.status === 500) {
-        setError("Login failed. Please check your credentials.");
+        {
+          toast.success("Server error. please comeback later.");
+        }
+      } else if (response.status === 401) {
+        {
+          toast.error("the user isnt signed up to the system");
+        }
       }
     } catch (error) {
-      setError("An error occurred while logging in.");
+      {
+        toast.error("Error occured.");
+      }
     }
   };
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       <div className="container">
         <div className="imageLogin">
           <img src={image} alt="Chat" />
@@ -103,7 +118,7 @@ const Login = () => {
               onClick={onBottonClick}
               value={"Login"}
             />
-            <label className="errorLabel">{error}</label>
+            <label className="errorLabel"></label>
           </div>
         </div>
       </div>
