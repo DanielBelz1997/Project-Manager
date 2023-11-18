@@ -1,23 +1,28 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const token = localStorage.getItem("token");
+
 const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (!user || !user.token) {
+    try {
+      const response = fetch(`http://localhost:3302/api/users/verify`, {
+        method: "POST",
+        headers: {
+          "jwt-token": token,
+        },
+        body: JSON.stringify(token),
+      });
+      if (response !== 200) {
+        navigate("/login");
+      }
+    } catch (e) {
       navigate("/login");
     }
 
-    const res = fetch(`http://localhost:3302/api/users/verify`, {
-      method: "POST",
-      headers: {
-        "jwt-token": user.token,
-      },
-    });
-    if (res.status === 401) {
+    if (!token) {
       navigate("/login");
     }
   }, [navigate]);

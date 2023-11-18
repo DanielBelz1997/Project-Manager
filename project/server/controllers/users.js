@@ -3,23 +3,17 @@ const jwt = require("jsonwebtoken");
 const connection = require("../db/connect.js");
 const bycrypt = require("bcrypt");
 
-async function getHomePage(req, res) {
-  res.send(
-    `"Auth API.\nPlease use POST /auth & POST /verify for authentication"`
-  );
-}
+async function getHomePage(req, res) {}
 
 async function loginUser(req, res) {
   const query = `
   SELECT username, password FROM users
   WHERE username = ? AND password = ?
   `;
-  console.log("dsadas");
 
   try {
     const { username, password } = req.body;
     console.log(req.body);
-    console.log(username, password);
 
     if (!username || !password) {
       return res.status(402).json({ message: "All fields are required" });
@@ -32,38 +26,22 @@ async function loginUser(req, res) {
       } else if (results.length === 0) {
         return res.status(401).json({ message: "המשתמש אינו רשום במערכת" });
       }
-
-      let loginData = {
-        username,
-        loginTime: Date.now(),
-      };
-
-      const token = jwt.sign(loginData, process.env.JWTsecret);
-
-      return res
-        .status(200)
-        .json({ message: "user was logged successfully!", token });
     });
+
+    let loginData = {
+      username,
+      loginTime: Date.now(),
+    };
+
+    const token = jwt.sign(loginData, process.env.JWTsecret, {
+      expiresIn: "1h",
+    });
+
+    res.json({ token });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: e });
   }
 }
 
-async function verify(req, res) {
-  const tokenHeaderKey = "jwt-token";
-  const authToken = req.headers[tokenHeaderKey];
-
-  try {
-    const verified = jwt.verify(authToken, process.env.JWTsecret);
-    if (verified) {
-      return res.status(200).json({ status: "logged in", message: "succes" });
-    } else {
-      return res.status(401).json({ status: "invalid auth", message: "error" });
-    }
-  } catch (e) {
-    return res.status(401).json({ status: "invalid auth", message: "error" });
-  }
-}
-
-module.exports = { getHomePage, loginUser, verify };
+module.exports = { getHomePage, loginUser };

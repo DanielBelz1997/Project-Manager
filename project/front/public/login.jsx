@@ -49,10 +49,8 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ username, token: response.token })
-        );
+        const { token } = await response.json();
+        localStorage.setItem("token", token);
         navigate("/");
       } else if (response.status === 500) {
         {
