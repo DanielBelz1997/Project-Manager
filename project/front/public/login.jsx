@@ -47,10 +47,7 @@ const Login = () => {
         },
         body: JSON.stringify({ username, password }),
       });
-
       if (response.status === 200) {
-        const { token } = await response.json();
-        localStorage.setItem("token", token);
         navigate("/");
       } else if (response.status === 500) {
         {
@@ -58,7 +55,7 @@ const Login = () => {
         }
       } else if (response.status === 401) {
         {
-          toast.error("the user isnt signed up to the system");
+          toast.error("אינך רשום במערכת. פנה לצוות התמיכה");
         }
       }
     } catch (error) {

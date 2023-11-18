@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const verify = require("../middleware/jwtVerify.js");
-const { loginUser } = require("../controllers/users.js");
+const verifyJWT = require("../middleware/jwtVerify.js");
+const { loginUser, getHomePage } = require("../controllers/users.js");
 
-router.post("/verify", verify);
+router.get(`/home`, getHomePage);
 
 router.post(`/auth`, loginUser);
 
