@@ -1,10 +1,11 @@
 require("dotenv").config();
-const bodyParser = require("body-parser");
-const express = require("express");
+import bodyParser from "body-parser";
+import express from "express";
 const app = express();
-const cors = require("cors");
-const connection = require("./db/connect.js");
-const logger = require("./modules/logger.js");
+import { ErrorRequestHandler } from "express";
+import cors from "cors";
+import connection from "./db/connect.js";
+import logger from "./modules/logger.js";
 
 const port = process.env.PORT || 3302;
 
@@ -15,7 +16,7 @@ app.use(bodyParser.json());
 
 app.use(`/api`, require(`./api.js`));
 
-connection.connect(function (err) {
+connection.connect(function (err: ErrorRequestHandler) {
   if (err) console.log(err);
   logger.info(`Connected to DataBase: ${process.env.DB}`);
 });
