@@ -1,8 +1,10 @@
-const jwt = require("jsonwebtoken");
+import jwt, { JwtPayload } from "jsonwebtoken";
+import { Response, Request, NextFunction } from "express";
 require("dotenv").config();
 
-const verifyJWT = (req, res, next) => {
-  const authToken = req.headers.authorization || req.headers.Authorization;
+const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
+  const authToken =
+    <string>req.headers.authorization || <string>req.headers.Authorization;
 
   if (!authToken) {
     console.log(authToken);
@@ -13,7 +15,7 @@ const verifyJWT = (req, res, next) => {
     console.log("here?");
     if (err) return res.status(401).json({ err: "token in invalid" });
 
-    req.user = decoded;
+    req.body.user = decoded;
     next();
   });
 };

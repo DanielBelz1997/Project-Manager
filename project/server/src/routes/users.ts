@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const verifyJWT = require("../middleware/jwtVerify.js");
-const { loginUser, getHomePage } = require("../controllers/users.js");
+// const verifyJWT = require("../middleware/jwtVerify.js");
+import { loginUser, getHomePage } from "../controllers/users";
 
 router.get(`/home`, getHomePage);
 

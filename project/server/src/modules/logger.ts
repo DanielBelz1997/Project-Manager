@@ -1,6 +1,6 @@
 const pino = require("pino");
 
-const logger = pino({
+export const logger = pino({
   transport: {
     target: "pino-pretty",
     options: {
@@ -9,5 +9,3 @@ const logger = pino({
     },
   },
 });
-
-module.exports = logger;
