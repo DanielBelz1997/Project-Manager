@@ -5,6 +5,6 @@ deadlines for their missions, the pushing to the main branch of the project, etc
 
 writen in:
 
-MySql, node.js, express, React 
+MySql, TS + node.js, express, React
 
-the app is not finished. 
+the app is not finished.
