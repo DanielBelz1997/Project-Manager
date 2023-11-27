@@ -7,8 +7,8 @@ body {
   background-color: hsl(0, 0%, 100%);
   background: linear-gradient(
     to right,
-    rgb(56, 56, 56),
-    rgb(35, 35, 35)
+    rgb(255, 255, 255),
+    rgb(255, 255, 255)
   ); /* Define your gradient colors */
   -webkit-background-clip: text; /* For WebKit browsers (e.g., Chrome, Safari) */
   background-clip: text;

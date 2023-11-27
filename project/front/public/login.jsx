@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "./5087579.png";
+import image from "./5087579.jpg";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -72,7 +72,11 @@ const Login = () => {
       </div>
       <div className="container">
         <div className="imageLogin">
-          <img src={image} alt="Chat" />
+          <img
+            src={image}
+            alt="Chat"
+            style={{ width: "700px", marginLeft: "50px" }}
+          />
         </div>
         <div className={"mainContainer"}>
           <div className={"titleContainer"}>
