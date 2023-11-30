@@ -55,7 +55,9 @@ const Login = () => {
         }
       } else if (response.status === 401) {
         {
-          toast.error("אינך רשום במערכת. פנה לצוות התמיכה");
+          toast.error(
+            "The username or password is incorrect. Please try again"
+          );
         }
       }
     } catch (error) {
@@ -80,7 +82,7 @@ const Login = () => {
         </div>
         <div className={"mainContainer"}>
           <div className={"titleContainer"}>
-            <div>Login</div>
+            <div>Hola!</div>
           </div>
           <br />
           <div className={"inputContainer"}>
@@ -105,9 +107,7 @@ const Login = () => {
             <span
               onClick={togglePasswordVisibility}
               style={{ cursor: "pointer", alignSelf: "center" }}
-            >
-              {showPassword ? "👁️" : "👁️"}
-            </span>
+            ></span>
           </div>
           <br />
           <div className={"inputContainer"}>

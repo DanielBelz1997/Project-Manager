@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "start": "nodemon",
     "test": "jest --watch"
@@ -26,6 +26,7 @@
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",
     "pino": "^8.16.1",
+    "pino-pretty": "^10.2.3",
     "supertest": "^6.3.3"
   },
   "devDependencies": {

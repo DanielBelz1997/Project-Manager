@@ -6,8 +6,7 @@ declare global {
       PASS: string;
       DB: string;
       PORT: number;
-      ACCESS_TOKEN_SECRET: string;
-      REFRESH_TOKEN_SECRET: string;
+      ACCESS_TOKEN_SECRET: Secret;
     }
   }
 }

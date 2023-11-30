@@ -42,7 +42,7 @@ export async function loginUser(req: Request, res: Response) {
       username,
       loginTime: Date.now(),
     };
-
+    //@ts-ignore
     const token = jwt.sign(loginData, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h",
     });
