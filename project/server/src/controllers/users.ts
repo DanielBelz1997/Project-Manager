@@ -47,7 +47,11 @@ export async function loginUser(req: Request, res: Response) {
       expiresIn: "1h",
     });
 
-    return res.json({ token });
+    console.log(username, password);
+    return res.status(200).cookie("jwt", token, {
+      expires: new Date(Date.now() + 900000),
+      httpOnly: true,
+    });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: e });

@@ -2,6 +2,7 @@ import { useState } from "react";
 import image from "./5087579.jpg";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [_, setCookies] = useCookies(["jwt"]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -40,20 +43,20 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`http://localhost:3302/api/users/auth`, {
+      const res = fetch(`http://localhost:3302/api/users/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ username, password }),
       });
-      if (response.status === 200) {
+      if (res.status === 200) {
         navigate("/");
-      } else if (response.status === 500) {
+      } else if (res.status === 500) {
         {
           toast.success("Server error. please comeback later.");
         }
-      } else if (response.status === 401) {
+      } else if (res.status === 401) {
         {
           toast.error("The username or password is incorrect");
         }
@@ -68,7 +71,7 @@ const Login = () => {
   return (
     <>
       <div>
-        <Toaster />
+        <Toaster position="bottom-center" />
       </div>
       <div className="container">
         <div className="imageLogin">
