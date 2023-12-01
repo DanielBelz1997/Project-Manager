@@ -55,9 +55,7 @@ const Login = () => {
         }
       } else if (response.status === 401) {
         {
-          toast.error(
-            "The username or password is incorrect. Please try again"
-          );
+          toast.error("The username or password is incorrect");
         }
       }
     } catch (error) {
@@ -77,7 +75,7 @@ const Login = () => {
           <img
             src={image}
             alt="Chat"
-            style={{ width: "700px", marginLeft: "50px" }}
+            style={{ width: "660px", marginLeft: "50px" }}
           />
         </div>
         <div className={"mainContainer"}>

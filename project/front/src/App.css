@@ -14,7 +14,7 @@
   background-color: #1a2e35;
   border-radius: 80px;
   padding: 100px;
-  margin-top: 35px;
+  /* margin-top: px; */
   max-width: 37%;
   flex: 1;
   flex-direction: column;
@@ -136,3 +136,78 @@
   padding-left: 8px;
   border-style: none;
 }
+
+.navbar {
+  /* background-image: url("./LOGO3.png"); */
+  background-size: 100px;
+  background-position: right;
+  background-repeat: no-repeat;
+  /* background-position: 98%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5ae4a8;
+  color: #fff;
+  /* padding: 0.2rem; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* margin-top: -0.8rem;
+  margin-left: -8px;
+  margin-right: -8px; */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: #ebebeb;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-menu li {
+  list-style: none;
+}
+
+.navbar-menu li a {
+  display: block;
+  /* padding: 0.5rem; */
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar button {
+  background-color: #5ae4a8;
+  border-width: 0.5px;
+  border-style: solid;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 100;
+  padding: 7px 15px 7px 15px;
+  margin: 6px 5px 6px 5px;
+}
+
+.navbar button:hover {
+  background-color: #7de2b6;
+  cursor: pointer;
+}
+
+/* .navbar-menu li a:hover {
+  background-color: #ffc107;
+  color: #fff;
+  text-decoration: noneh;
+  border-radius: 4px;
+} */
