@@ -1,8 +1,8 @@
 import { useState } from "react";
 import image from "./5087579.jpg";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import { useCookies } from "react-cookie";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -10,8 +10,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  // eslint-disable-next-line no-unused-vars
   const [_, setCookies] = useCookies(["jwt"]);
+  // eslint-disable-next-line no-unused-vars
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -43,14 +43,26 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = fetch(`http://localhost:3302/api/users/auth`, {
+      const res = await fetch(`http://localhost:3302/api/users/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({ username, password }),
       });
+      const result = await res.json();
       if (res.status === 200) {
+        console.log(result);
+        setCookies("jwt", result, { secure: false, httpOnly: false });
+        // need to fix before prudoction
+        // path?: string;
+        // expires?: Date;
+        // maxAge?: number;
+        // domain?: string;
+        // secure?: boolean;
+        // httpOnly?: boolean;
+        // sameSite?: boolean | 'none' | 'lax' | 'strict';
         navigate("/");
       } else if (res.status === 500) {
         {

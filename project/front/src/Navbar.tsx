@@ -11,8 +11,6 @@ export default function Navbar() {
     navigate("/login");
   };
 
-  console.log(cookies.jwt);
-
   return (
     <div className="navbar">
       {cookies?.jwt === "" ? (

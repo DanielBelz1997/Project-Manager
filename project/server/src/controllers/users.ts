@@ -3,6 +3,7 @@ import { promisify } from "util";
 import jwt from "jsonwebtoken";
 import { connection } from "../db/connect";
 import { QueryOptions } from "mysql2";
+import cookies from "cookie-parser";
 
 const queryAsync = promisify(connection.query.bind(connection)) as (
   options: QueryOptions
@@ -42,16 +43,12 @@ export async function loginUser(req: Request, res: Response) {
       username,
       loginTime: Date.now(),
     };
-    //@ts-ignore
+    // @ts-ignore
     const token = jwt.sign(loginData, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h",
     });
 
-    console.log(username, password);
-    return res.status(200).cookie("jwt", token, {
-      expires: new Date(Date.now() + 900000),
-      httpOnly: true,
-    });
+    return res.status(200).json(token);
   } catch (e) {
     console.log(e);
     return res.status(500).json({ message: e });
