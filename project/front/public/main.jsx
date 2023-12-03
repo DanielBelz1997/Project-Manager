@@ -1,7 +1,12 @@
+import Submenu from "../src/components/Submenu";
+
 const HomePage = () => {
   return (
     <>
-      <div className="displayName">{"welcome"}</div>
+      <Submenu />
+      <div className="displayName" style={{ color: "black" }}>
+        {"^here^"}
+      </div>
     </>
   );
 };
