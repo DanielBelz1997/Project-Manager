@@ -1,0 +1,43 @@
+/* Navbar.css */
+
+.navbar {
+  background-color: #282c34; /* Dark background color */
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: -150px; /* Add margin between logo and navigation links */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push the nav-links to the right */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #61dafb; /* Hover color */
+}
+
+/* Add this style to center the nav-links */
+.navbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto; /* Push the nav-links to the right */
+}
+
+/* Remove margin-left: auto; from .nav-links */
