@@ -11,7 +11,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-right: -150px; /* Add margin between logo and navigation links */
+  margin-right: -125px; /* Add margin between logo and navigation links */
 }
 
 .nav-links {

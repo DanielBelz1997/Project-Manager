@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "./5087579.jpg";
+import image from "./5087579.webp";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import toast, { Toaster } from "react-hot-toast";
@@ -83,16 +83,36 @@ const Login = () => {
   return (
     <>
       <div>
-        <Toaster position="bottom-center" />
+        <Toaster position="bottom-right" />
       </div>
-      <div className="container">
-        <div className="imageLogin">
-          <img
-            src={image}
-            alt="Chat"
-            style={{ width: "660px", marginLeft: "50px" }}
-          />
-        </div>
+      <div className="imageLogin" style={{ position: "relative", zIndex: 1 }}>
+        <img
+          src={image}
+          alt="Chat"
+          style={{
+            // width: "100%",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            width: "133vh",
+          }}
+        />
+      </div>
+      <div
+        className="container"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 2,
+        }}
+      >
         <div className={"mainContainer"}>
           <div className={"titleContainer"}>
             <div>Hola!</div>
