@@ -5,6 +5,7 @@ import Navbar from "./Navbar.js";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import "./App.css";
+// import SideBar from "./components/SideBar.tsx";
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -20,6 +21,7 @@ const App: React.FC = () => {
     <>
       <BrowserRouter>
         <Navbar logo="Your Logo" isAuthenticated={isAuthenticated} />
+        {/* <SideBar /> */}
         <Routes>
           <Route path="/login" Component={Login} />
           <Route path="/" Component={HomePage} />

@@ -11,12 +11,13 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-right: -125px; /* Add margin between logo and navigation links */
+  /* margin-right: -125px; Add margin between logo and navigation links */
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  align-content: center;
   margin-left: auto; /* Push the nav-links to the right */
 }
 
@@ -36,8 +37,7 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-left: auto; /* Push the nav-links to the right */
+  margin-left: -8rem;
 }
 
 /* Remove margin-left: auto; from .nav-links */
