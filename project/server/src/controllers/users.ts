@@ -1,9 +1,19 @@
+// @ts-nocheck
 import { Request, Response } from "express";
 import { promisify } from "util";
 import jwt from "jsonwebtoken";
 import { connection } from "../db/connect";
 import { QueryOptions } from "mysql2";
-import cookies from "cookie-parser";
+import { AsyncLocalStorage } from "node:async_hooks";
+
+// to see how this function works
+const loginCount = new AsyncLocalStorage();
+const loggercount = () => {
+  const id = loginCount.getStore();
+  console.log(`login num: ${id}`);
+};
+
+let idSeq = 0;
 
 const queryAsync = promisify(connection.query.bind(connection)) as (
   options: QueryOptions
@@ -46,6 +56,10 @@ export async function loginUser(req: Request, res: Response) {
     // @ts-ignore
     const token = jwt.sign(loginData, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1h",
+    });
+
+    loginCount.run(idSeq++, () => {
+      loggercount();
     });
 
     return res.status(200).json(token);
