@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ logo }) => {
   let checkIfTrue: React.CSSProperties | undefined;
 
   isAuthenticated === true
-    ? (checkIfTrue = { backgroundColor: "#24292f" })
+    ? (checkIfTrue = { backgroundColor: "#010409" })
     : {};
   console.log(checkIfTrue);
   return (

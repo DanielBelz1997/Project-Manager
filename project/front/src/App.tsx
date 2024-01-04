@@ -31,7 +31,7 @@ const App: React.FC = () => {
               style={{
                 width: "70px",
                 padding: "-10px",
-                margin: "-10px",
+                marginTop: "-10px",
                 alignItems: "center",
                 justifyContent: "center",
                 display: "flex",

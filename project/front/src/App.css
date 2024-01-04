@@ -248,13 +248,31 @@
   text-align: center;
   align-self: center;
   margin-top: 30px;
-  background-color: rgb(56, 60, 65);
+  background-color: #0d1117;
+  border: #8b949e;
+  border-width: 1px;
   margin-inline: auto;
   max-width: 600px;
   min-width: 400px;
-  padding-bottom: 440px;
+  padding-bottom: 360px;
+  border-radius: 10px;
+  border-style: solid;
 }
 
 .parargraphProjectName {
-  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: -5px;
+}
+
+.inputCreateProjectBox {
+  height: 30px;
+  width: 250px;
+  font-size: 12px;
+  border-width: 1px;
+  border-radius: 9px;
+  border: 8px, solid, rgb(233, 233, 233);
+  padding-left: 8px;
+  color: #fff;
+  background-color: #0d1117;
+  border-style: solid;
 }
