@@ -2,6 +2,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../public/login.jsx";
 import HomePage from "../public/main.tsx";
+import { CreateProject } from "./components/createProject.tsx";
 import Navbar from "./Navbar.js";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -28,7 +29,7 @@ const App: React.FC = () => {
               src={image}
               alt="Chat"
               style={{
-                width: "100px",
+                width: "70px",
                 padding: "-10px",
                 margin: "-10px",
                 alignItems: "center",
@@ -43,6 +44,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/login" Component={Login} />
           <Route path="/" Component={HomePage} />
+          <Route path="/createProject" Component={CreateProject} />
         </Routes>
       </BrowserRouter>
     </>

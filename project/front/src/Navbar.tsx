@@ -25,13 +25,19 @@ const Navbar: React.FC<NavbarProps> = ({ logo }) => {
       {isAuthenticated && (
         <div className="navbar-center">
           <Link to="/" className="nav-link">
-            Home
+            Projects
           </Link>
-          <Link to="/about" className="nav-link">
+          <Link to="/createProject" className="nav-link">
+            Create Project
+          </Link>
+          <Link to="/Teams" className="nav-link">
+            Teams
+          </Link>
+          <Link to="/Chat" className="nav-link">
+            Chat
+          </Link>
+          <Link to="/About" className="nav-link">
             About
-          </Link>
-          <Link to="/contact" className="nav-link">
-            Contact
           </Link>
           <Link to="/logout" className="nav-link">
             Logout

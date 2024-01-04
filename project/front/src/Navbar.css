@@ -5,13 +5,13 @@
   color: white;
   display: flex;
   align-items: center;
-  padding: 15px 30px;
+  padding: 15px 20px;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  /* margin-right: -125px; Add margin between logo and navigation links */
+  margin-right: 90px;
 }
 
 .nav-links {

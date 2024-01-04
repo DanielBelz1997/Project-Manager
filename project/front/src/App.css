@@ -243,3 +243,18 @@
   /* border-style: inset; */
   border-color: var(--button-default-borderColor-hover, #8b949e);
 }
+
+.createProject {
+  text-align: center;
+  align-self: center;
+  margin-top: 30px;
+  background-color: rgb(56, 60, 65);
+  margin-inline: auto;
+  max-width: 600px;
+  min-width: 400px;
+  padding-bottom: 440px;
+}
+
+.parargraphProjectName {
+  padding: 15px;
+}
