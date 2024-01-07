@@ -217,7 +217,8 @@
 
 .projects-list {
   text-align: -webkit-center;
-  margin-top: 50px;
+  margin-top: -128px;
+  padding: 110px;
 }
 
 .project-button {

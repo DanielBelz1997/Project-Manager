@@ -7,8 +7,9 @@ import Navbar from "./Navbar.js";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import "./App.css";
-import image from "../public/snorlax-pixel-art-pokemon-pokemon-b71f72bdc97cc38e186081657b91bc51.png";
-// import SideBar from "./components/SideBar.tsx";
+import { NavbarMinimal } from "./components/NavBarMinimal.tsx";
+import "@mantine/core/styles.css";
+import { HeaderMenu } from "./components/HeaderMenu.tsx";
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -21,33 +22,15 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        <Navbar
-          logo={
-            <img
-              src={image}
-              alt="Chat"
-              style={{
-                width: "70px",
-                padding: "-10px",
-                marginTop: "-10px",
-                alignItems: "center",
-                justifyContent: "center",
-                display: "flex",
-              }}
-            />
-          }
-          isAuthenticated={isAuthenticated}
-        />
-        {/* <SideBar /> */}
-        <Routes>
-          <Route path="/login" Component={Login} />
-          <Route path="/" Component={HomePage} />
-          <Route path="/createProject" Component={CreateProject} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <HeaderMenu />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/createProject" element={<CreateProject />} />
+      </Routes>
+      <NavbarMinimal />
+    </BrowserRouter>
   );
 };
 
