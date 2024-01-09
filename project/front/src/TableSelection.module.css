@@ -1,0 +1,8 @@
+.rowSelected {
+  background-color: var(--mantine-color-blue-light);
+}
+
+.container {
+  max-height: 400px; /* Set the maximum height for the table container */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
