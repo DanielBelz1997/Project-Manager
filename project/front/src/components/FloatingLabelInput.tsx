@@ -58,7 +58,7 @@ export function FloatingLabelInputNum3() {
 
   return (
     <TextInput
-      label="prog. count ?"
+      label="Team Members Num."
       // placeholder="example: Chat"
       required
       classNames={classes}
