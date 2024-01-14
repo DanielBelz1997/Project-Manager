@@ -7,6 +7,7 @@ import {
 } from "./FloatingLabelInput";
 import { TableSelection } from "./TableSelection";
 import { DateInput } from "./DateInput";
+import { SubmitBotton } from "./BottonSubmit";
 
 const PRIMARY_COL_HEIGHT = rem(390);
 
@@ -17,7 +18,7 @@ export function LeadGrid() {
   return (
     <Container my="xl">
       <SimpleGrid cols={{ base: 1, sm: 1 }} spacing="sm">
-        <span style={{ marginBottom: "-8px" }}>
+        <span style={{ marginBottom: "8px" }}>
           fill the following details in order to create a project:
         </span>
         <div style={{ display: "flex" }}>
@@ -46,6 +47,7 @@ export function LeadGrid() {
             />
           </Grid.Col> */}
         </Grid>
+        <SubmitBotton />
       </SimpleGrid>
     </Container>
   );

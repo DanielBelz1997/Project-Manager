@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DatePickerInput } from "@mantine/dates";
+import { Group } from "@mantine/core";
 import React from "react";
 
 export function DateInput() {
@@ -7,10 +8,13 @@ export function DateInput() {
   return (
     <DatePickerInput
       type="range"
-      label="Pick dates range"
+      // label="Pick dates range"
       placeholder="Pick dates range"
       value={value}
       onChange={setValue}
+      style={{ marginTop: "1em" }}
+      mx="140"
+      maw={400}
     />
   );
 }
