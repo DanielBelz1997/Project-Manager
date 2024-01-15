@@ -8,11 +8,11 @@ export function DateInput() {
   return (
     <DatePickerInput
       type="range"
-      // label="Pick dates range"
+      label="Pick dates range:"
       placeholder="Pick dates range"
       value={value}
       onChange={setValue}
-      style={{ marginTop: "1em" }}
+      style={{ marginTop: "-2em", paddingLeft: "4em" }}
       mx="140"
       maw={400}
     />

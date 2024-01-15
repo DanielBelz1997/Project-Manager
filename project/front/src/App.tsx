@@ -10,6 +10,7 @@ import "./App.css";
 import { NavbarMinimal } from "./components/NavBarMinimal.tsx";
 import "@mantine/core/styles.css";
 import { HeaderMenu } from "./components/HeaderMenu.tsx";
+import "@mantine/dates/styles.css";
 
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
