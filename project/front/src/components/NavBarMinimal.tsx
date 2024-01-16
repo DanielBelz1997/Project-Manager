@@ -42,7 +42,11 @@ function NavbarLink({ icon: Icon, label, to }: NavbarLinkProps) {
 const mockdata = [
   { icon: IconHome2, label: "Home", to: "/" },
   { icon: IconSeeding, label: "Create Project", to: "/createProject" },
-  { icon: IconDeviceDesktopAnalytics, label: "Analytics", to: "/analytics" },
+  {
+    icon: IconDeviceDesktopAnalytics,
+    label: "Programmers List",
+    to: "/programmersList",
+  },
   { icon: IconCalendarStats, label: "Releases", to: "/releases" },
   { icon: IconUser, label: "Account", to: "/account" },
   { icon: IconFingerprint, label: "Security", to: "/security" },

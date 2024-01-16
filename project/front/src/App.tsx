@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../public/login.jsx";
 import HomePage from "../public/main.tsx";
 import { CreateProject } from "./components/createProject.tsx";
+import { ProgrammersList } from "./pages/programmersList/programmersList.tsx";
 import Navbar from "./Navbar.js";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/createProject" element={<CreateProject />} />
+        <Route path="/programmersList" element={<ProgrammersList />} />
       </Routes>
       <NavbarMinimal />
     </BrowserRouter>
